@@ -23,7 +23,3 @@ Estimated time to complete the task: 6h.
  - Learn how the [REST COUNTRIES 🇵🇪](https://restcountries.com/#api-endpoints-v2) RESTful service works.
  - Implement the `CountryService` class whose methods return data as a result of requests to the following endpoints [API ENDPOINTS V2](https://restcountries.com/#api-endpoints-v2) of the RESTful service.
  - Compare synchronous and asynchronous implementations of the methods. Make inferences about usage preference.
-Test Implemented Methods
-Perform WebClient HttpClient Class
-
-
