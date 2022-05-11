@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,7 +30,8 @@ namespace CountryServices
         /// <exception cref="ArgumentException">Throw if countryCode is null, empty, whitespace or invalid country code.</exception>
         public LocalCurrency GetLocalCurrencyByAlpha2Or3Code(string? alpha2Or3Code)
         {
-            //TODO: Use WebClient class.
+            //TODO: Use WebClient and JsonSerializer classes.
+            
             throw new NotImplementedException();
         }
 
@@ -47,7 +48,7 @@ namespace CountryServices
         public async Task<LocalCurrency> GetLocalCurrencyByAlpha2Or3CodeAsync(string? alpha2Or3Code,
             CancellationToken token)
         {
-            //TODO: Use HttpClient class. Notice the difference from WebClient class. In the future, in a similar situation, use only HttpClient.
+            //TODO: Use HttpClient and JsonSerializer classes. Notice the difference from WebClient class. In the future, in a similar situation, use only HttpClient.
             throw new NotImplementedException();
         }
 
@@ -59,7 +60,7 @@ namespace CountryServices
         /// <exception cref="ArgumentException">Throw if the capital name is null, empty, whitespace or nonexistent.</exception>
         public CountryInfo GetCountryInfoByCapital(string? capital)
         {
-            //TODO: Use WebClient class.
+            //TODO: Use WebClient and JsonSerializer classes.
             throw new NotImplementedException();
         }
 
@@ -72,7 +73,7 @@ namespace CountryServices
         /// <exception cref="ArgumentException">Throw if the capital name is null, empty, whitespace or nonexistent.</exception>
         public async Task<CountryInfo> GetCountryInfoByCapitalAsync(string? capital, CancellationToken token)
         {
-            //TODO: Use HttpClient class. Notice the difference from WebClient class. In the future, in a similar situation, use only HttpClient.
+            //TODO: Use HttpClient and JsonSerializer classes. Notice the difference from WebClient class. In the future, in a similar situation, use only HttpClient.
             throw new NotImplementedException();
         }
     }
