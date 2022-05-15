@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using CountryServices.Tests.Comparers;
@@ -73,7 +73,7 @@ namespace CountryServices.Tests
                 var value = new CountryService().GetCountryInfoByCapital(capitalName);
             });
 
-        [TestCaseSource(typeof(TestCasesData), nameof(TestCasesData.TestCasesForCurrency))]
+        [TestCaseSource(typeof(TestCasesData), nameof(TestCasesData.TestCasesForCountryInfo))]
         public async Task GetCountryInfoByCapitalAsync_ValidCapitalName(string capitalName, CountryInfo expected)
         {
             var comparer = new CountryInfoComparer();
