@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace CountryServices.Tests.Comparers
+﻿namespace CountryServices.Tests.Comparers
 {
     /// <summary>
     /// Present equality comparer by value of LocalCurrency objects.
@@ -21,12 +18,7 @@ namespace CountryServices.Tests.Comparers
                 return true;
             }
 
-            if (ReferenceEquals(x, null))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(y, null))
+            if (x is null || y is null)
             {
                 return false;
             }
@@ -42,8 +34,8 @@ namespace CountryServices.Tests.Comparers
         /// <summary>
         /// Calculate hash code of object.
         /// </summary>
-        /// <param name="obj">Source object</param>
-        /// <returns></returns>
+        /// <param name="obj">Source object.</param>
+        /// <returns>Returns the hash code of the object.</returns>
         public int GetHashCode(CountryInfo obj)
         {
             return HashCode.Combine(obj.Name, obj.CapitalName);

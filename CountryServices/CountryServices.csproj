@@ -8,7 +8,7 @@
     <CodeAnalysisTreatWarningsAsErrors>false</CodeAnalysisTreatWarningsAsErrors>
     <CodeAnalysisRuleSet>..\code-analysis.ruleset</CodeAnalysisRuleSet>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <NoWarn>CS8618,SA1303,SA1309,SA1005</NoWarn>
+    <NoWarn>CS8618,S107</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\code-analysis.ruleset" Link="Properties\code-analisys.ruleset" />

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,18 +6,24 @@ using System.Threading.Tasks;
 namespace CountryServices
 {
     /// <summary>
-    /// Provides information about country local currency from RESTful API
-    /// <see>
-    ///     <cref>https://restcountries.com/#api-endpoints-v2</cref>
-    /// </see>
+    /// Provides information about country local currency from RESTful API.
+    /// <see><cref>https://restcountries.com/#api-endpoints-v2</cref></see>.
     /// </summary>
     public class CountryService : ICountryService
     {
-        private const string? serviceUrl = "https://restcountries.com/v2";
+        private readonly string serviceUrl;
+        private readonly Dictionary<string, WeakReference<LocalCurrency>> currencyCountries = new ();
 
-        private readonly Dictionary<string, WeakReference<LocalCurrency>> currencyCountries =
-            new Dictionary<string, WeakReference<LocalCurrency>>();
-        //TODO: Add code if needed here.
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CountryService"/> class with specified <see cref="serviceUrl"/>.
+        /// </summary>
+        /// <param name="serviceUrl">The service URL.</param>
+        public CountryService(string serviceUrl)
+        {
+            this.serviceUrl = serviceUrl;
+        }
+
+        // TODO: Add code if needed here.
 
         /// <summary>
         /// Gets information about currency by country code synchronously.
@@ -30,8 +36,7 @@ namespace CountryServices
         /// <exception cref="ArgumentException">Throw if countryCode is null, empty, whitespace or invalid country code.</exception>
         public LocalCurrency GetLocalCurrencyByAlpha2Or3Code(string? alpha2Or3Code)
         {
-            //TODO: Use WebClient and JsonSerializer classes.
-            
+            // TODO: Use WebClient and JsonSerializer classes.
             throw new NotImplementedException();
         }
 
@@ -45,10 +50,9 @@ namespace CountryServices
         /// <param name="token">Token for cancellation asynchronous operation.</param>
         /// <returns>Information about country currency as <see cref="LocalCurrency"/>>.</returns>
         /// <exception cref="ArgumentException">Throw if countryCode is null, empty, whitespace or invalid country code.</exception>
-        public async Task<LocalCurrency> GetLocalCurrencyByAlpha2Or3CodeAsync(string? alpha2Or3Code,
-            CancellationToken token)
+        public async Task<LocalCurrency> GetLocalCurrencyByAlpha2Or3CodeAsync(string? alpha2Or3Code, CancellationToken token)
         {
-            //TODO: Use HttpClient and JsonSerializer classes. Notice the difference from WebClient class. In the future, in a similar situation, use only HttpClient.
+            // TODO: Use HttpClient and JsonSerializer classes. Notice the difference from WebClient class. In the future, in a similar situation, use only HttpClient.
             throw new NotImplementedException();
         }
 
@@ -60,7 +64,7 @@ namespace CountryServices
         /// <exception cref="ArgumentException">Throw if the capital name is null, empty, whitespace or nonexistent.</exception>
         public CountryInfo GetCountryInfoByCapital(string? capital)
         {
-            //TODO: Use WebClient and JsonSerializer classes.
+            // TODO: Use WebClient and JsonSerializer classes.
             throw new NotImplementedException();
         }
 
@@ -73,7 +77,7 @@ namespace CountryServices
         /// <exception cref="ArgumentException">Throw if the capital name is null, empty, whitespace or nonexistent.</exception>
         public async Task<CountryInfo> GetCountryInfoByCapitalAsync(string? capital, CancellationToken token)
         {
-            //TODO: Use HttpClient and JsonSerializer classes. Notice the difference from WebClient class. In the future, in a similar situation, use only HttpClient.
+            // TODO: Use HttpClient and JsonSerializer classes. Notice the difference from WebClient class. In the future, in a similar situation, use only HttpClient.
             throw new NotImplementedException();
         }
     }
