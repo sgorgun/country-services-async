@@ -14,10 +14,10 @@ namespace CountryServices
     {
         private readonly string serviceUrl;
         private readonly Dictionary<string, WeakReference<LocalCurrency>> currencyCountries = new ();
-        private readonly HttpClient httpClient = new HttpClient();
+        private readonly HttpClient httpClient;
         #pragma warning disable SYSLIB0014 // Type or member is obsolete
-        private readonly WebClient webClient = new();
-        #pragma arning restore SYSLIB0014 // Type or member is obsolete
+        private readonly WebClient webClient;
+        #pragma warning restore SYSLIB0014 // Type or member is obsolete
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CountryService"/> class with specified <see cref="serviceUrl"/>.
