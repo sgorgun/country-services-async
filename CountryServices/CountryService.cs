@@ -15,6 +15,8 @@ namespace CountryServices
     {
         private readonly string serviceUrl;
 
+        private readonly Dictionary<string, WeakReference<LocalCurrency>> currencyCountries = new ();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="CountryService"/> class with specified <see cref="serviceUrl"/>.
         /// </summary>
@@ -40,8 +42,9 @@ namespace CountryServices
             try
             {
                 using var webClient = new WebClient();
-                var url = $"{this.serviceUrl}/alpha/{alpha2Or3Code}";
-                var json = webClient.DownloadString(url);
+                var apiUrl = $"{this.serviceUrl}/alpha/{alpha2Or3Code}";
+                var json = webClient.DownloadString(apiUrl);
+
                 var currencyInfo = JsonSerializer.Deserialize<JsonElement>(json);
 
                 if (currencyInfo.ValueKind != JsonValueKind.Object)
@@ -62,12 +65,16 @@ namespace CountryServices
                 string? currencyCode = firstCurrency.GetProperty("code").GetString();
                 string? currencySymbol = firstCurrency.GetProperty("symbol").GetString();
 
-                return new LocalCurrency
+                var localCurrency = new LocalCurrency
                 {
                     CountryName = countryName,
                     CurrencyCode = currencyCode,
                     CurrencySymbol = currencySymbol,
                 };
+
+                this.currencyCountries[alpha2Or3Code!] = new WeakReference<LocalCurrency>(localCurrency);
+
+                return localCurrency;
             }
             catch (WebException ex)
             {
@@ -123,12 +130,16 @@ namespace CountryServices
                 string? currencyCode = firstCurrency.GetProperty("code").GetString();
                 string? currencySymbol = firstCurrency.GetProperty("symbol").GetString();
 
-                return new LocalCurrency
+                var localCurrency = new LocalCurrency
                 {
                     CountryName = countryName,
                     CurrencyCode = currencyCode,
                     CurrencySymbol = currencySymbol,
                 };
+
+                this.currencyCountries[alpha2Or3Code!] = new WeakReference<LocalCurrency>(localCurrency);
+
+                return localCurrency;
             }
             catch (HttpRequestException ex)
             {
